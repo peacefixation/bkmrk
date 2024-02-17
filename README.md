@@ -12,3 +12,10 @@ API routes are exposed to:
 - get a bookmark by ID
 - get all bookmarks
 - update a bookmark by ID
+- delete a bookmark by ID
+
+Based on the [SST guide](https://sst.dev/guide.html)
+
+## Run in development
+
+`npx sst dev`
