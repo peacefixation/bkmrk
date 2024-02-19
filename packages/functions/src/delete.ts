@@ -7,9 +7,9 @@ const userId = "matt"
 
 export const main = handler(async (event) => {
   const params = {
-    TableName: Table.bookmarks.tableName,
+    TableName: Table.Bookmarks.tableName,
     Key: {
-      userId: userId, // The id of the user
+      userId: event.requestContext.authorizer?.iam.cognitoIdentity.identityId,
       bookmarkId: event?.pathParameters?.id, // The id of the note from the path
     },
   };

@@ -7,7 +7,7 @@ const userId = "matt"
 
 export const main = handler(async (event) => {
   const params = {
-    TableName: Table.bookmarks.tableName,
+    TableName: Table.Bookmarks.tableName,
     // 'KeyConditionExpression' defines the condition for the query
     // - 'userId = :userId': only return items with matching 'userId'
     //   partition key
@@ -15,7 +15,7 @@ export const main = handler(async (event) => {
     // 'ExpressionAttributeValues' defines the value in the condition
     // - ':userId': defines 'userId' to be the id of the author
     ExpressionAttributeValues: {
-      ":userId": userId,
+      ":userId": event.requestContext.authorizer?.iam.cognitoIdentity.identityId,
     },
   };
 

@@ -17,10 +17,10 @@ export const main = handler(async (event) => {
   }
 
   const params = {
-    TableName: Table.bookmarks.tableName,
+    TableName: Table.Bookmarks.tableName,
     Item: {
       // The attributes of the item to be created
-      userId: userId, // The id of the author
+      userId: event.requestContext.authorizer?.iam.cognitoIdentity.identityId,
       bookmarkId: uuid.v1(), // A unique uuid
       bookmarkUrl: data.bookmarkUrl, // Parsed from request body
       bookmarkTitle: data.bookmarkTitle, // Parsed from request body

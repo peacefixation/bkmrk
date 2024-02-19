@@ -9,10 +9,10 @@ export const main = handler(async (event) => {
   const data = JSON.parse(event.body || "{}");
 
   const params = {
-    TableName: Table.bookmarks.tableName,
+    TableName: Table.Bookmarks.tableName,
     Key: {
       // The attributes of the item to be created
-      userId: userId, // The id of the author
+      userId: event.requestContext.authorizer?.iam.cognitoIdentity.identityId,
       bookmarkId: event?.pathParameters?.id, // The id of the note from the path
     },
     // 'UpdateExpression' defines the attributes to be updated
