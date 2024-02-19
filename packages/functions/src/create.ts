@@ -3,9 +3,6 @@ import { Table } from "sst/node/table";
 import handler from "@bkmrk/core/handler";
 import dynamoDb from "@bkmrk/core/dynamodb";
 
-// TODO: we might want to get the userId from the request
-const userId = "matt"
-
 export const main = handler(async (event) => {
   let data = {
     bookmarkUrl: "",
